@@ -11,21 +11,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 def render_chat_interface():
     st.header("Chat with the Resume")  # Header for the chat interface
 
-    # Add CSS for fixing chat input position at the bottom
-    st.markdown("""
-        <style>
-        .stChatInput {
-            position: fixed;
-            bottom: 0;   
-            padding: 1rem;
-            background-color: white;
-            z-index: 1000;
-        }
-        .stChatFloatingInputContainer {
-            margin-bottom: 20px;
-        }
-        </style>
-    """, unsafe_allow_html=True)  # Injecting custom CSS for styling
+    # Removed fixed positioning CSS to let Streamlit handle chat input layout natively within the column.
 
     # Initialize empty chat messages
     if "messages" not in st.session_state:
